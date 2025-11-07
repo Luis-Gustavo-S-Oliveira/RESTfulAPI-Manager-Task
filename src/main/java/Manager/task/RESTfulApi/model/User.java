@@ -12,4 +12,8 @@ public class User {
     @Column(unique = true)
     private String name;
     private String email;
+
+    public long getId() {
+        return id;
+    }
 }
