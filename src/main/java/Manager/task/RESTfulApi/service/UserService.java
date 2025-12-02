@@ -2,7 +2,11 @@ package Manager.task.RESTfulApi.service;
 
 import Manager.task.RESTfulApi.model.User;
 import Manager.task.RESTfulApi.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
+
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
@@ -11,10 +15,15 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User save(User user) {
-        if(userRepository.existsById(user.getId())){
-            throw  new RuntimeException("User with id " + user.getId() + " already exists");
+    public User userCreate(User user) {
+        if(userRepository.existsByEmail(user.getEmail())){
+            throw new RuntimeException("Email already exists");
         }
         return userRepository.save(user);
+
+    }
+
+    public User userFindById(Long id){
+        return userRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 }

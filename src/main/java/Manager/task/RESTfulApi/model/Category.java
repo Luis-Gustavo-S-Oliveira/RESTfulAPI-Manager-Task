@@ -12,5 +12,4 @@ public class Category {
     Long id;
 
     String nome;
-    String cor;
 }

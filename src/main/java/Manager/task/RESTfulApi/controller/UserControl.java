@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserControl {
 
+    @GetMapping()
+    public String defaut(){
+        return "Ola bemvindo";
+    }
     @GetMapping("/user")
     public User user() {
         return new User();

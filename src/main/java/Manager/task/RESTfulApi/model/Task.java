@@ -9,25 +9,15 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tb_id")
     Long id;
-
     String titulo;
-
     @Column(length = (100))
     String descricao;
-
     @ManyToOne
-    @JoinColumn(name = "id_category")
     Category category;
-
     LocalDate dataLimite;
-
     @ManyToOne
-    @JoinColumn(name = "project_tb_id")
     Project project;
-
-    String prioridade;
 
     String status;
 

@@ -16,13 +16,10 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tb_id")
     Long id;
-
     String nome;
     String descricao;
     LocalDate dataCriacao;
-
     @OneToMany(cascade = CascadeType.ALL)
     List<Task> tasks = new ArrayList<Task>();
 

@@ -11,16 +11,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(unique = true)
     private String name;
     private String email;
     String senha;
-
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Project> projects = new ArrayList<>();
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Task> tasksIndependent = new ArrayList<>();
 
